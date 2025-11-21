@@ -1,106 +1,120 @@
-import { motion } from "framer-motion"; import { useState } from "react";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LooseWild – Formulário</title>
 
-export default function Home() { const [activeSection, setActiveSection] = useState("home");
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://images.unsplash.com/photo-1540518614846-7eded433c457') center/cover no-repeat fixed;
+    backdrop-filter: blur(4px);
+    color: #fff;
+}
 
-return ( <div className="min-h-screen w-full bg-white text-black overflow-hidden relative"> {/* Background animation */} <div className="absolute inset-0 z-0 opacity-30"> <motion.div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e')" }} animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 12, repeat: Infinity }} /> </div>
+.header {
+    text-align: center;
+    padding: 30px 20px;
+}
 
-{/* Overlay */}
-  <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-10" />
+.logo {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff0077;
+}
 
-  {/* Content */}
-  <div className="relative z-20 max-w-4xl mx-auto px-6 pt-16 pb-32">
-    {/* Logo */}
-    <div className="flex justify-center mb-10">
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="text-5xl font-extrabold tracking-tight"
-      >
-        LOOSE BUILD
-      </motion.h1>
-    </div>
+.form-container {
+    max-width: 520px;
+    margin: 50px auto;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #ff0077aa;
+}
 
-    {/* Navigation */}
-    <div className="flex justify-center gap-6 mb-10 text-lg font-semibold">
-      <button onClick={() => setActiveSection("home")} className="hover:text-gray-700">Home</button>
-      <button onClick={() => setActiveSection("form")} className="hover:text-gray-700">Formulário</button>
-      <button onClick={() => setActiveSection("gallery")} className="hover:text-gray-700">Galerias</button>
-      <button onClick={() => setActiveSection("contact")} className="hover:text-gray-700">Contato Direto</button>
-    </div>
+.banner {
+    width: 100%;
+    height: 240px;
+    background: url('https://images.unsplash.com/photo-1521119989659-a83eee488004') center/cover no-repeat;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
 
-    {/* Sections */}
-    {/* HOME */}
-    {activeSection === "home" && (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <h2 className="text-3xl font-bold mb-4">Bem-vinda ao universo Loose</h2>
-        <p className="text-lg opacity-80 max-w-2xl mx-auto">
-          Acesso exclusivo. Conteúdo agressivo. Energia sensual. Um ambiente criado para mulheres que querem ir além.
-        </p>
-      </motion.div>
-    )}
+label {
+    font-weight: bold;
+    margin-top: 12px;
+    display: block;
+}
 
-    {/* FORM */}
-    {activeSection === "form" && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <h2 className="text-3xl font-bold mb-6">Formulário Oficial</h2>
-        <a
-          href="https://tally.so/r/nGWp7k"
-          target="_blank"
-          className="inline-block bg-black text-white px-6 py-3 rounded-xl text-lg font-semibold hover:bg-gray-900"
-        >
-          Abrir Formulário
-        </a>
-      </motion.div>
-    )}
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #222;
+    color: #fff;
+}
 
-    {/* GALLERY */}
-    {activeSection === "gallery" && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl font-bold text-center mb-6">Galerias Exclusivas</h2>
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    background: linear-gradient(90deg, #ff0077, #ff3aad);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff0077aa;
+    transition: 0.3s;
+}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="w-full h-64 bg-cover bg-center rounded-2xl shadow-lg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb')" }} />
-          <div className="w-full h-64 bg-cover bg-center rounded-2xl shadow-lg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e')" }} />
-          <div className="w-full h-64 bg-cover bg-center rounded-2xl shadow-lg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1503341450885-c68dd93fe798')" }} />
-          <div className="w-full h-64 bg-cover bg-center rounded-2xl shadow-lg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517841905240-472988babdf9')" }} />
-        </div>
-      </motion.div>
-    )}
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px #ff0077dd;
+}
+</style>
+</head>
 
-    {/* CONTACT */}
-    {activeSection === "contact" && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <h2 className="text-3xl font-bold mb-4">Contato Direto</h2>
-        <p className="text-lg opacity-80 mb-4">Fale comigo diretamente para propostas, parcerias ou acompanhamento exclusivo.</p>
-        <a
-          href="mailto:loosewild1@gmail.com"
-          className="inline-block bg-black text-white px-6 py-3 rounded-xl text-lg font-semibold hover:bg-gray-900"
-        >
-          Enviar E-mail
-        </a>
-      </motion.div>
-    )}
-  </div>
+<body>
+
+<div class="header">
+    <div class="logo">LOOSEWILD</div>
 </div>
 
-); }
+<div class="form-container">
+
+    <div class="banner"></div>
+
+    <h2 style="text-align:center; margin-bottom: 20px;">Formulário de Recrutamento – OnlyFans Manager</h2>
+
+    <form action="https://formsubmit.co/YOUR_EMAIL_AQUI" method="POST">
+
+        <label>Seu nome</label>
+        <input type="text" name="nome" required>
+
+        <label>Seu Instagram</label>
+        <input type="text" name="instagram" required>
+
+        <label>Você já tem OnlyFans?</label>
+        <select name="tem_only" required>
+            <option value="sim">Sim</option>
+            <option value="não">Não</option>
+        </select>
+
+        <label>O que você busca ao trabalhar com a LooseWild?</label>
+        <textarea name="objetivo" rows="4" required></textarea>
+
+        <button type="submit">Enviar Formulário</button>
+    </form>
+</div>
+
+</body>
+</html>
