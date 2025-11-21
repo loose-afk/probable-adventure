@@ -1,120 +1,131 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LooseWild – Formulário</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário – LooseWild</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('https://images.unsplash.com/photo-1540518614846-7eded433c457') center/cover no-repeat fixed;
-    backdrop-filter: blur(4px);
-    color: #fff;
-}
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-.header {
-    text-align: center;
-    padding: 30px 20px;
-}
+    /* Fundo agressivo e sensual */
+    .bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e');
+      filter: brightness(0.35) blur(4px);
+      z-index: -1;
+    }
 
-.logo {
-    font-size: 48px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #ff0077;
-}
+    .form-container {
+      max-width: 550px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      margin: 50px auto;
+      padding: 40px 30px;
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    }
 
-.form-container {
-    max-width: 520px;
-    margin: 50px auto;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px #ff0077aa;
-}
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
 
-.banner {
-    width: 100%;
-    height: 240px;
-    background: url('https://images.unsplash.com/photo-1521119989659-a83eee488004') center/cover no-repeat;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
+    p.subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 35px;
+    }
 
-label {
-    font-weight: bold;
-    margin-top: 12px;
-    display: block;
-}
+    label {
+      font-size: 1rem;
+      font-weight: 600;
+      display: block;
+      margin: 15px 0 5px;
+    }
 
-input, textarea, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    background: #222;
-    color: #fff;
-}
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 1rem;
+    }
 
-button {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    background: linear-gradient(90deg, #ff0077, #ff3aad);
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 0 15px #ff0077aa;
-    transition: 0.3s;
-}
+    button {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, #ffffff, #cfcfcf);
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+      text-transform: uppercase;
+    }
 
-button:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 25px #ff0077dd;
-}
-</style>
+    button:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(255,255,255,0.35);
+    }
+
+  </style>
 </head>
-
 <body>
 
-<div class="header">
-    <div class="logo">LOOSEWILD</div>
-</div>
+  <div class="bg"></div>
 
-<div class="form-container">
+  <div class="form-container">
+    <h1>LOOSEWILD</h1>
+    <p class="subtitle">Formulário Agressivo & Sensual para Novas Modelos</p>
 
-    <div class="banner"></div>
+    <label>Seu nome completo</label>
+    <input type="text" placeholder="Digite aqui..." />
 
-    <h2 style="text-align:center; margin-bottom: 20px;">Formulário de Recrutamento – OnlyFans Manager</h2>
+    <label>Seu Instagram</label>
+    <input type="text" placeholder="@seuusuario" />
 
-    <form action="https://formsubmit.co/YOUR_EMAIL_AQUI" method="POST">
+    <label>WhatsApp</label>
+    <input type="text" placeholder="(DDD) Número" />
 
-        <label>Seu nome</label>
-        <input type="text" name="nome" required>
+    <label>Você já trabalha com conteúdo adulto?</label>
+    <select>
+      <option>Sim</option>
+      <option>Não</option>
+      <option>Quero começar</option>
+    </select>
 
-        <label>Seu Instagram</label>
-        <input type="text" name="instagram" required>
+    <label>Explique seu objetivo com a LooseWild</label>
+    <textarea rows="4" placeholder="Escreva aqui..."></textarea>
 
-        <label>Você já tem OnlyFans?</label>
-        <select name="tem_only" required>
-            <option value="sim">Sim</option>
-            <option value="não">Não</option>
-        </select>
-
-        <label>O que você busca ao trabalhar com a LooseWild?</label>
-        <textarea name="objetivo" rows="4" required></textarea>
-
-        <button type="submit">Enviar Formulário</button>
-    </form>
-</div>
+    <button>Enviar Formulário</button>
+  </div>
 
 </body>
 </html>
