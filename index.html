@@ -1,131 +1,125 @@
-    <!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulário – LooseWild</title>
+  <title>LOOSEWILD — Modelo 2</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
-
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
       background: #000;
       color: #fff;
-      padding: 0;
-      min-height: 100vh;
       overflow-x: hidden;
-    }
+    }/* Fundo em vídeo */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(40%);
+}
 
-    /* Fundo agressivo e sensual */
-    .bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e');
-      filter: brightness(0.35) blur(4px);
-      z-index: -1;
-    }
+header {
+  width: 100%;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  text-transform: uppercase;
+}
 
-    .form-container {
-      max-width: 550px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      margin: 50px auto;
-      padding: 40px 30px;
-      border-radius: 18px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 25px rgba(0,0,0,0.8);
-    }
+/* Cards estilo OnlyFans */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 50px;
+  margin-top: 40px;
+}
 
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(255, 0, 140, 0.3);
+  transition: .3s;
+}
+.card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 25px rgba(255, 0, 160, 0.55);
+}
 
-    p.subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      opacity: 0.8;
-      margin-bottom: 35px;
-    }
+.card img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
 
-    label {
-      font-size: 1rem;
-      font-weight: 600;
-      display: block;
-      margin: 15px 0 5px;
-    }
+.card-info {
+  padding: 20px;
+  text-align: center;
+}
 
-    input, textarea, select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      margin-bottom: 15px;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      font-size: 1rem;
-    }
+.btn {
+  margin-top: 15px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: #ff007a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: .3s;
+}
 
-    button {
-      width: 100%;
-      padding: 18px;
-      background: linear-gradient(135deg, #ffffff, #cfcfcf);
-      color: #000;
-      font-size: 1.2rem;
-      font-weight: 800;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: 0.2s;
-      text-transform: uppercase;
-    }
+.btn:hover {
+  background: #ff24a6;
+  transform: scale(1.05);
+}
 
-    button:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(255,255,255,0.35);
-    }
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  opacity: 0.6;
+}
 
   </style>
 </head>
-<body>
-
-  <div class="bg"></div>
-
-  <div class="form-container">
-    <h1>LOOSEWILD</h1>
-    <p class="subtitle">Formulário Agressivo & Sensual para Novas Modelos</p>
-
-    <label>Seu nome completo</label>
-    <input type="text" placeholder="Digite aqui..." />
-
-    <label>Seu Instagram</label>
-    <input type="text" placeholder="@seuusuario" />
-
-    <label>WhatsApp</label>
-    <input type="text" placeholder="(DDD) Número" />
-
-    <label>Você já trabalha com conteúdo adulto?</label>
-    <select>
-      <option>Sim</option>
-      <option>Não</option>
-      <option>Quero começar</option>
-    </select>
-
-    <label>Explique seu objetivo com a LooseWild</label>
-    <textarea rows="4" placeholder="Escreva aqui..."></textarea>
-
-    <button>Enviar Formulário</button>
+<body>  <!-- Vídeo de fundo sensual -->  <video class="video-bg" autoplay muted loop>
+    <source src="https://cdn.coverr.co/videos/coverr-girl-walking-in-the-city-9711/1080p.mp4" type="video/mp4" />
+  </video>  <header>LOOSEWILD</header>  <div class="grid">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3756940/pexels-photo-3756940.jpeg" />
+      <div class="card-info">
+        <h3>Galerias</h3>
+        <a class="btn" href="#">Acessar</a>
+      </div>
+    </div><div class="card">
+  <img src="https://images.pexels.com/photos/1704125/pexels-photo-1704125.jpeg" />
+  <div class="card-info">
+    <h3>Vídeos Exclusivos</h3>
+    <a class="btn" href="#">Ver Agora</a>
   </div>
+</div>
 
-</body>
-</html>
+<div class="card">
+  <img src="https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg" />
+  <div class="card-info">
+    <h3>Contato Direto</h3>
+    <a class="btn" href="mailto:loosewild1@gmail.com">Enviar Mensagem</a>
+  </div>
+</div>
+
+  </div>  <footer>© 2025 LOOSEWILD — Estilo OnlyFans, forte, agressivo e premium.</footer></body>
+    </html>
