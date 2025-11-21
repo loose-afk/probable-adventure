@@ -1,53 +1,137 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mensagem Impactante</title>
+    <title>LooseWild — OnlyFans Manager</title>
+
+    <!-- Fonte Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Fundo animado com blur */
+        .background-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            animation: slide 12s infinite linear;
+            filter: blur(8px) brightness(0.35);
+        }
+
+        @keyframes slide {
+            0% { background-image: url('https://images.unsplash.com/photo-1504252060328-4b4d08a3a5d2'); }
+            33% { background-image: url('https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb'); }
+            66% { background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9'); }
+            100% { background-image: url('https://images.unsplash.com/photo-1504252060328-4b4d08a3a5d2'); }
+        }
+
+        /* Header */
+        header {
             text-align: center;
+            padding: 60px 20px 20px;
         }
-        .container {
-            padding: 20px;
-            max-width: 600px;
-        }
-        h1 {
-            font-size: 28px;
-            font-weight: 800;
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: #fff;
             text-transform: uppercase;
-            line-height: 1.3;
         }
-        p {
-            font-size: 18px;
-            margin-top: 20px;
-            line-height: 1.5;
-            color: #c9c9c9;
+
+        .banner {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 25px rgba(255,255,255,0.2);
+        }
+
+        .banner img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Botões */
+        .btn {
+            display: block;
+            width: 85%;
+            margin: 15px auto;
+            padding: 18px;
+            background: linear-gradient(135deg, #ff0099, #ff2a6d, #ff0055);
+            border: none;
+            border-radius: 14px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0px 0px 20px rgba(255,0,120,0.4);
+            transition: 0.25s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 35px rgba(255,0,120,0.8);
+        }
+
+        .sub {
+            margin: 40px 0;
+            text-align: center;
+            color: #cfcfcf;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 10px;
+            font-size: 0.8rem;
+            color: #999;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>
-            TREMEU VENDO ISSO?  
-            <br>IMAGINA AO VIVO.
-        </h1>
 
-        <p>
-            Você está vendo só a superfície.  
-            Por trás dessa tela existe fogo, verdade e zero freio.  
-            Se isso já mexeu contigo…  
-            **eu nem preciso te contar o resto.**
-        </p>
+<body>
+
+    <!-- Fundo com fotos -->
+    <div class="background-animated"></div>
+
+    <header>
+        <div class="logo">LooseWild</div>
+        <p style="font-size: 1.1rem; opacity: .85;">OnlyFans Manager • Premium Agency</p>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Banner">
     </div>
+
+    <!-- Botões principais -->
+    <a class="btn" href="https://wa.me/5491145635086" target="_blank">📱 Falar com Fred Loose</a>
+    <a class="btn" href="https://www.instagram.com/icon.inc.club" target="_blank">📸 Instagram — ICON</a>
+    <a class="btn" href="https://www.instagram.com/fred_loose" target="_blank">👤 Instagram — Fred Loose</a>
+
+    <div class="sub">Gerenciamento profissional, crescimento real e estratégia agressiva.</div>
+
+    <footer>
+        LooseWild © 2025 — OnlyFans Manager Elite
+    </footer>
+
 </body>
 </html>
