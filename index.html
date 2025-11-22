@@ -1,151 +1,114 @@
-<!DOCTYPE html><html lang="pt-br">
+
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LOOSEWILD — Modelo 2</title>
+  <title>Lose The Build</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html {
+      width: 100%; height: 100%; overflow: hidden; font-family: Arial, sans-serif;
       background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }/* Fundo em vídeo */
-.video-bg {
+    }/* Tela de animação inicial */
+#splash {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(40%);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 1.8s ease forwards;
+  animation-delay: 2s;
+  z-index: 9999;
 }
 
-header {
-  width: 100%;
-  padding: 25px 0;
-  text-align: center;
-  font-size: 40px;
-  font-weight: bold;
-  letter-spacing: 4px;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-  text-transform: uppercase;
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
 }
 
-/* Cards estilo OnlyFans */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.logo {
+  font-size: 2.7rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  animation: pop 2s ease;
+}
+
+@keyframes pop {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.lose { color: #fff; }
+.build { color: #2f7dff; }
+
+/* Fundo com fotos sensuais em animação leve */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45);
+  animation: slide 20s infinite alternate ease-in-out;
+}
+
+@keyframes slide {
+  0% { background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1'); }
+  50% { background-image: url('https://images.unsplash.com/photo-1521193611869-bc3f9c8a62a7'); }
+  100% { background-image: url('https://images.unsplash.com/photo-1531256379411-3a1f06e2f7f8'); }
+}
+
+/* Conteúdo central */
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 25px;
-  padding: 50px;
-  margin-top: 40px;
 }
 
-.card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 20px;
-  overflow: hidden;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 20px rgba(255, 0, 140, 0.3);
-  transition: .3s;
-}
-.card:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 25px rgba(255, 0, 160, 0.55);
-}
-
-.card img {
-  width: 100%;
-  height: 380px;
-  object-fit: cover;
-}
-
-.card-info {
-  padding: 20px;
-  text-align: center;
+.main-logo {
+  font-size: 2.3rem;
+  font-weight: 900;
+  margin-bottom: 35px;
 }
 
 .btn {
-  margin-top: 15px;
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 30px;
-  background: #ff007a;
+  width: 260px;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: .3s;
+  transition: 0.2s;
 }
 
 .btn:hover {
-  background: #ff24a6;
-  transform: scale(1.05);
-}
-
-footer {
-  text-align: center;
-  margin-top: 40px;
-  padding: 20px;
-  opacity: 0.6;
+  background: rgba(255,255,255,0.28);
+  transform: scale(1.04);
 }
 
   </style>
 </head>
-<body>  <!-- Tela de bloqueio de assinatura -->  <div id="paywall" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);backdrop-filter:blur(6px);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;text-align:center;padding:20px;">
-    <h1 style="font-size:38px;letter-spacing:3px;margin-bottom:20px;">Conteúdo 100% Privado</h1>
-    <p style="font-size:18px;max-width:420px;opacity:.8;">Para acessar as galerias, vídeos e contato direto, é necessário assinar o LOOSEWILD Premium.</p>
-    <a href="#assinar" style="margin-top:25px;display:inline-block;padding:14px 34px;border-radius:40px;background:#ff007a;color:#fff;font-weight:bold;text-transform:uppercase;letter-spacing:2px;text-decoration:none;">Assinar Agora</a>
-  </div>  <!-- Vídeo de fundo sensual -->  <video class="video-bg" autoplay muted loop>
-    <source src="https://cdn.coverr.co/videos/coverr-girl-walking-in-the-city-9711/1080p.mp4" type="video/mp4" />
-  </video>  <header>LOOSEWILD</header>  <div class="grid">
-    <div class="card">
-      <img src="https://images.pexels.com/photos/3756940/pexels-photo-3756940.jpeg" />
-      <div class="card-info">
-        <h3>Galerias</h3>
-        <a class="btn" href="#">Acessar</a>
-      </div>
-    </div><div class="card">
-  <img src="https://images.pexels.com/photos/1704125/pexels-photo-1704125.jpeg" />
-  <div class="card-info">
-    <h3>Vídeos Exclusivos</h3>
-    <a class="btn" href="#">Ver Agora</a>
-  </div>
-</div>
+<body>  <!-- Animação inicial -->  <div id="splash">
+    <div class="logo"><span class="lose">Lose</span> <span class="build">The Build</span></div>
+  </div>  <div class="background"></div>  <div class="content">
+    <div class="main-logo"><span class="lose">Lose</span> <span class="build">The Build</span></div><!-- Botão Contato direto (Whatsapp) -->
+<a id="contato" href="#" class="btn">Contato direto</a>
 
-<div class="card">
-  <img src="https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg" />
-  <div class="card-info">
-    <h3>Contato Direto</h3>
-    <a class="btn" href="mailto:loosewild1@gmail.com">Enviar Mensagem</a>
-  </div>
-</div>
+<!-- Botão Galerias exclusivas -->
+<a href="#" class="btn">Galerias exclusivas</a>
 
-  </div>  <footer>© 2025 LOOSEWILD — Estilo OnlyFans, forte, agressivo e premium.</footer>  <!-- Página de Assinatura -->  <section id="assinar" style="padding:60px 20px;text-align:center;background:rgba(0,0,0,0.85);margin-top:60px;">
-    <h2 style="font-size:36px;margin-bottom:15px;">Assine o LOOSEWILD Premium</h2>
-    <p style="font-size:18px;opacity:.8;max-width:500px;margin:auto;">Acesso completo a galerias privadas, vídeos premium e contato direto. Conteúdo forte, sensual e exclusivo.</p>
-    <a href="#painel" style="margin-top:25px;display:inline-block;padding:14px 34px;border-radius:40px;background:#ff007a;color:#fff;font-weight:bold;text-transform:uppercase;letter-spacing:2px;text-decoration:none;">Confirmar Assinatura</a>
-  </section>  <!-- Painel do Criador -->  <section id="painel" style="padding:60px 20px;background:#0a0a0a;margin-top:60px;text-align:center;">
-    <h2 style="font-size:34px;margin-bottom:20px;">Painel do Criador</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;padding:20px;">
-      <div style="background:#111;padding:25px;border-radius:12px;">Gerenciar Galerias</div>
-      <div style="background:#111;padding:25px;border-radius:12px;">Enviar Vídeos</div>
-      <div style="background:#111;padding:25px;border-radius:12px;">Mensagens Privadas</div>
-      <div style="background:#111;padding:25px;border-radius:12px;">Assinantes</div>
-    </div>
-  </section>  <!-- Área de Membros -->  <section id="membros" style="padding:60px 20px;background:rgba(255,255,255,0.05);margin-top:60px;text-align:center;">
-    <h2 style="font-size:34px;margin-bottom:15px;">Área de Membros</h2>
-    <p style="opacity:.8;max-width:450px;margin:auto;">Conteúdos liberados somente após assinatura. Experiência premium garantida.</p>
-  </section><script>
-  // Simulação simples: após clicar em "Assinar Agora", remove o bloqueio
-  document.addEventListener('click', function(e){
-    if(e.target.textContent.includes('Assinar Agora')){
-      document.getElementById('paywall').style.display = 'none';
-    }
-  });
-</script></body>
-                                                                    </html>  
+<!-- Botão Quero ser modelo -->
+<a href="#" class="btn">Eu quero ser a modelo</a>
+
+  </div></body>
+</html>
