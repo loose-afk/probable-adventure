@@ -6,90 +6,137 @@ index.html<!DOCTYPE html>
   <title>Loose Wild</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{height:100%;background:#000;font-family:Arial,Helvetica,sans-serif;color:#fff;overflow:hidden}
+    html,body{height:100%;background:#000;font-family:Arial,Helvetica,sans-serif;color:#fff;overflow-x:hidden}
 
-    /* splash com vídeo + logo */
+    /* Splash com vídeo + logo */
     #splash{
       position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
       background:#000;z-index:9999;
-      animation:hideSplash 1s ease forwards; animation-delay:3s;
     }
-    #splash video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45}
-    #splash .logo{position:relative;z-index:2;font-weight:900;font-size:3rem;letter-spacing:2px;display:flex;gap:8px;align-items:center}
-    .logo .lose{color:#fff}
-    .logo .wild{color:#2f7dff} /* cor parecida ao azul Olympus */
+    #splash video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5}
+    #splash .logo{position:relative;z-index:2;font-weight:900;font-size:3.5rem;letter-spacing:3px;display:flex;gap:10px}
+    .lose{color:#fff}
+    .wild{color:#2f7dff}
 
     @keyframes hideSplash{to{opacity:0;visibility:hidden}}
 
-    /* fundo animado de fotos (substitui ou fica abaixo do video) */
+    /* Fundo animado */
     .background{
       position:fixed;inset:0;z-index:1;filter:brightness(0.45);
       background-size:cover;background-position:center;
-      animation:slide 20s infinite alternate ease-in-out;
+      animation:slide 24s infinite alternate ease-in-out;
     }
     @keyframes slide{
-      0%{background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=60')}
-      33%{background-image:url('https://images.unsplash.com/photo-1521193611869-bc3f9c8a62a7?auto=format&fit=crop&w=1400&q=60')}
-      66%{background-image:url('https://images.unsplash.com/photo-1531256379411-3a1f06e2f7f8?auto=format&fit=crop&w=1400&q=60')}
-      100%{background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=60')}
+      0%  {background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1400')}
+      25% {background-image:url('https://images.unsplash.com/photo-1521193611869-bc3f9c8a62a7?w=1400')}
+      50% {background-image:url('https://images.unsplash.com/photo-1531256379411-3a1f06e2f7f8?w=1400')}
+      75% {background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1400')}
+      100%{background-image:url('https://images.unsplash.com/photo-1496449902946-1d76e5fdc6a8?w=1400')}
     }
 
-    /* conteúdo principal (sobre o fundo/video) */
+    /* Conteúdo principal */
     .content{
-      position:relative;z-index:10;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:40px;
+      position:relative;z-index:10;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;padding:20px;
+      animation: appear 1s forwards 3.2s; opacity:0;
     }
-    .main-logo{font-size:2.3rem;font-weight:900;display:flex;gap:8px}
-    .main-logo .lose{color:#fff}
-    .main-logo .wild{color:#2f7dff}
+    @keyframes appear{to{opacity:1}}
 
+    .main-logo{font-size:2.8rem;font-weight:900;display:flex;gap:10px}
     .btn{
-      width:280px;padding:14px 18px;border-radius:10px;text-align:center;text-decoration:none;font-weight:700;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);color:#fff;display:inline-block;transition:transform .15s,background .15s;
+      width:290px;max-width:90%;padding:16px;border-radius:12px;text-align:center;font-weight:700;
+      background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);text-decoration:none;color:#fff;
+      transition:all .2s;
     }
-    .btn:hover{transform:scale(1.04);background:rgba(255,255,255,0.22)}
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.08)}
-    
-    /* botão de suporte fixado embaixo */
+    .btn:hover{transform:scale(1.05);background:rgba(255,255,255,0.25)}
+
+    /* Galeria */
+    #galeria:target ~ .content,
+    #modelo:target ~ .content{display:none}
+    #galeria:target ~ #galeria-section,
+    #modelo:target ~ #modelo-section{display:block}
+
+    section{display:none;position:relative;z-index:10;min-height:100vh;padding:80px 20px 100px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px;max-width:1200px;margin:0 auto}
+    .grid img{width:100%;border-radius:12px;object-fit:cover;height:400px;transition:transform .3s}
+    .grid img:hover{transform:scale(1.03)}
+
+    /* Formulário modelo */
+    form{max-width:420px;margin:0 auto;background:rgba(255,255,255,0.08);padding:30px;border-radius:16px;backdrop-filter:blur(10px)}
+    input,textarea{width:100%;padding:14px;margin:10px 0;border:none;border-radius:8px;background:rgba(255,255,255,0.1);color:#fff}
+    input::placeholder,textarea::placeholder{color:#ccc}
+    button{background:#2f7dff;color:#fff;padding:14px;border:none;border-radius:8px;width:100%;font-weight:700;cursor:pointer}
+
+    /* Botão suporte fixo */
     #suporte{
-      position:fixed;left:50%;transform:translateX(-50%);bottom:36px;z-index:11;width:88%;max-width:420px;
+      position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:20;
+      background:#2f7dff !important;padding:14px 30px !important;border-radius:50px !important;
     }
 
     @media(min-width:700px){
-      .btn{width:320px}
-      #suporte{max-width:320px}
+      .main-logo{font-size:3.5rem}
+      .btn{width:340px}
     }
   </style>
 </head>
 <body>
 
-  <!-- Splash inicial com vídeo e logo (vai sumir após 3s pela animação) -->
+  <!-- Splash -->
   <div id="splash" aria-hidden="true">
     <video autoplay muted loop playsinline>
-      <source src="grok_video_2025-11-19-13-54-53.mp4" type="video/mp4">
-      <!-- Se preferir usar um link remoto, substitua o src acima -->
+      <!-- Vídeo hospedado online pra sempre funcionar -->
+      <source src="https://github.com/loose-afk/loose-afk.github.io/raw/main/probable-adventure/video.mp4" type="video/mp4">
     </video>
     <div class="logo"><span class="lose">Loose</span><span class="wild">Wild</span></div>
   </div>
 
-  <!-- Fundo animado com fotos (aparece por baixo do vídeo) -->
+  <!-- Fundo animado -->
   <div class="background" aria-hidden="true"></div>
 
-  <!-- Conteúdo principal -->
-  <div class="content" role="main">
+  <!-- Página inicial -->
+  <div class="content" id="home">
     <div class="main-logo"><span class="lose">Loose</span><span class="wild">Wild</span></div>
-
-    <a class="btn" href="#galeria" role="button">Galeria</a>
-    <a class="btn" href="#modelo" role="button">Eu quero ser a modelo</a>
+    <a class="btn" href="#galeria">Galeria</a>
+    <a class="btn" href="#modelo">Quero ser modelo</a>
+    <a class="btn" href="#home">Início</a>
   </div>
 
-  <!-- Botão de suporte fixo embaixo (aponta pro WhatsApp) -->
-  <a id="suporte" class="btn" href="https://wa.me/5491145635086" target="_blank" rel="noopener noreferrer">Entre em contato com suporte</a>
+  <!-- Galeria -->
+  <section id="galeria-section">
+    <h2 style="text-align:center;margin-bottom:30px;font-size:2rem">Galeria</h2>
+    <div class="grid">
+      <img src="https://images.unsplash.com/photo-1503185912284-5271c1b38827?w=800" alt="1">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3519b39624?w=800" alt="2">
+      <img src="https://images.unsplash.com/photo-1496449902946-1d76e5fdc6a8?w=800" alt="3">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800" alt="4">
+      <img src="https://images.unsplash.com/photo-1534528744345-6c7c2a9e8e8c?w=800" alt="5">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800" alt="6">
+      <img src="https://images.unsplash.com/photo-1566207474741-1d2e0b359ec5?w=800" alt="7">
+      <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?w=800" alt="8">
+      <img src="https://images.unsplash.com/photo-1502673530728-f79b4e9de9dc?w=800" alt="9">
+    </div>
+  </section>
+
+  <!-- Formulário Quero ser modelo -->
+  <section id="modelo-section">
+    <h2 style="text-align:center;margin-bottom:30px;font-size:2rem">Quero ser modelo</h2>
+    <form action="https://api.whatsapp.com/send" method="get" target="_blank">
+      <input type="hidden" name="phone" value="5591145635086">
+      <input type="text" name="text" placeholder="Seu nome completo" required>
+      <input type="text" name="text" placeholder="Idade" required>
+      <input type="tel" name="text" placeholder="Seu WhatsApp (com DDD)" required>
+      <textarea name="text" rows="4" placeholder="Fale um pouco sobre você (altura, medidas, experiência...)"></textarea>
+      <button type="submit">Enviar pelo WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- Botão suporte fixo -->
+  <a id="suporte" class="btn" href="https://wa.me/5591145635086" target="_blank">Suporte WhatsApp</a>
 
   <script>
-    // garante que o splash desapareça mesmo que a animação não seja executada
-    setTimeout(function(){
-      var s = document.getElementById('splash');
-      if(s) s.style.display = 'none';
-    },3500);
+    // Remove splash depois de 3 segundos
+    setTimeout(() => {
+      document.getElementById('splash').style.display = 'none';
+    }, 3200);
   </script>
 </body>
-      </html>
+    </html>
