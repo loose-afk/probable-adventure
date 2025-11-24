@@ -91,11 +91,38 @@ index.html<!DOCTYPE html><html lang="pt-BR">
   z-index: -1;
 }
 
+/* Slideshow de fundo */
+.slideshow-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+}
+.slideshow-bg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  filter: brightness(0.35);
+}
+.slideshow-bg .active {
+  opacity: 1;
+}
+
   </style>
 </head>
-<body>  <!-- Vídeo de fundo premium (substitua pelo vídeo final) -->  <video id="background-video" autoplay muted loop playsinline>
-    <source src="luxury-video.mp4" type="video/mp4">
-  </video>  <div class="gold-overlay"></div>
+<body>  <!-- INTRO: Vídeo de entrada (tela cheia) --><div id="intro-screen" style="position:fixed; inset:0; background:#000; z-index:9999; display:flex; align-items:center; justify-content:center;">
+  <video id="intro-video" autoplay muted playsinline style="width:100%; height:100%; object-fit:cover;">
+    <source src="grok_video_2025-11-19-13-54-53.mp4" type="video/mp4">
+  </video>
+</div><!-- Fundo com animação de fotos --><div class="slideshow-bg">
+  <img class="slide active" src="https://images.unsplash.com/photo-1517841905240-472988babdf9" />
+  <img class="slide" src="https://images.unsplash.com/photo-1508182311256-e3f7d57a5aae" />
+  <img class="slide" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" />
+  <img class="slide" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" />
+</div>  <div class="gold-overlay"></div>
   <div class="lux-glow"></div>  <!-- Logo principal -->  <div class="logo">
     <span class="loose">Loose</span> <span class="wild">Wild</span>
   </div>  <!-- Botões -->  <div class="buttons">
@@ -104,5 +131,22 @@ index.html<!DOCTYPE html><html lang="pt-BR">
     <a class="btn" href="#apply">Torne-se uma Modelo Elite</a>
   </div>  <!-- Suporte --><a id="suporte" class="btn" href="https://wa.me/5491145635086" target="_blank">Suporte Exclusivo</a>
 
-</body>
+<script>
+// Troca de imagens do slideshow
+let slides = document.querySelectorAll('.slideshow-bg .slide');
+let index = 0;
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 6000);
+
+// Remove vídeo de introdução depois de terminar
+const introVideo = document.getElementById('intro-video');
+const introScreen = document.getElementById('intro-screen');
+introVideo.onended = () => {
+  introScreen.style.opacity = '0';
+  setTimeout(() => introScreen.style.display = 'none', 600);
+};
+</script></body>
 </html>
