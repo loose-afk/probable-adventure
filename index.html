@@ -1,4 +1,5 @@
-index.html<!DOCTYPE html><html lang="pt-BR">
+index.html<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,125 +12,144 @@ index.html<!DOCTYPE html><html lang="pt-BR">
       font-family: 'Arial', sans-serif;
       color: #fff;
       overflow: hidden;
-    }/* Fundo com vídeo + overlay dourado */
-#background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-  filter: brightness(0.35);
-}
+    }
 
-.gold-overlay {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(255,215,0,0.08), rgba(0,0,0,0.85));
-  z-index: -1;
-}
+    /* Fundo com vídeo + overlay dourado */
+    #background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.35);
+    }
 
-/* Logo premium */
-.logo {
-  text-align: center;
-  margin-top: 60px;
-  font-weight: 900;
-  font-size: 3rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-.logo .loose { color: #ffffff; }
-.logo .wild { color: #d4af37; }
+    .gold-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255,215,0,0.08), rgba(0,0,0,0.85));
+      z-index: -1;
+    }
 
-/* Botões premium */
-.buttons {
-  margin-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-}
+    /* Logo premium */
+    .logo {
+      text-align: center;
+      margin-top: 60px;
+      font-weight: 900;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .logo .loose { color: #ffffff; }
+    .logo .wild { color: #d4af37; }
 
-.btn {
-  width: 300px;
-  padding: 16px 22px;
-  border: 2px solid #d4af37;
-  border-radius: 14px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #d4af37;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(7px);
-  transition: 0.25s;
-}
-.btn:hover {
-  transform: scale(1.05);
-  background: rgba(212,175,55,0.15);
-  color: #fff;
-  border-color: #fff;
-}
+    /* Botões premium */
+    .buttons {
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
 
-/* Botão fixo de suporte */
-#suporte {
-  position: fixed;
-  bottom: 35px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
-  max-width: 360px;
-}
+    .btn {
+      width: 300px;
+      padding: 16px 22px;
+      border: 2px solid #d4af37;
+      border-radius: 14px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #d4af37;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(7px);
+      transition: 0.25s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      background: rgba(212,175,55,0.15);
+      color: #fff;
+      border-color: #fff;
+    }
 
-/* Efeito brilho dourado suave */
-.lux-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 70%, rgba(212,175,55,0.25), transparent);
-  filter: blur(120px);
-  z-index: -1;
-}
+    /* Botão fixo de suporte */
+    #suporte {
+      position: fixed;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      max-width: 360px;
+    }
 
-/* Slideshow de fundo */
-.slideshow-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  overflow: hidden;
-}
-.slideshow-bg img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-  filter: brightness(0.35);
-}
-.slideshow-bg .active {
-  opacity: 1;
-}
+    /* Efeito brilho dourado suave */
+    .lux-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 70%, rgba(212,175,55,0.25), transparent);
+      filter: blur(120px);
+      z-index: -1;
+    }
+  
+    /* Slideshow de fundo */
+    .slideshow-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      overflow: hidden;
+    }
+    .slideshow-bg img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      filter: brightness(0.35);
+    }
+    .slideshow-bg .active {
+      opacity: 1;
+    }
 
   </style>
 </head>
-<body>  <!-- INTRO: Vídeo de entrada (tela cheia) --><div id="intro-screen" style="position:fixed; inset:0; background:#000; z-index:9999; display:flex; align-items:center; justify-content:center;">
+<body>
+
+  <!-- INTRO: Vídeo de entrada (tela cheia) -->
+<div id="intro-screen" style="position:fixed; inset:0; background:#000; z-index:9999; display:flex; align-items:center; justify-content:center;">
   <video id="intro-video" autoplay muted playsinline style="width:100%; height:100%; object-fit:cover;">
     <source src="grok_video_2025-11-19-13-54-53.mp4" type="video/mp4">
   </video>
-</div><!-- Fundo com animação de fotos --><div class="slideshow-bg">
+</div>
+
+<!-- Fundo com animação de fotos -->
+<div class="slideshow-bg">
   <img class="slide active" src="https://images.unsplash.com/photo-1517841905240-472988babdf9" />
   <img class="slide" src="https://images.unsplash.com/photo-1508182311256-e3f7d57a5aae" />
   <img class="slide" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" />
   <img class="slide" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" />
-</div>  <div class="gold-overlay"></div>
-  <div class="lux-glow"></div>  <!-- Logo principal -->  <div class="logo">
+</div>
+
+  <div class="gold-overlay"></div>
+  <div class="lux-glow"></div>
+
+  <!-- Logo principal -->
+  <div class="logo">
     <span class="loose">Loose</span> <span class="wild">Wild</span>
-  </div>  <!-- Botões -->  <div class="buttons">
+  </div>
+
+  <!-- Botões -->
+  <div class="buttons">
     <a class="btn" href="#elite">Galeria Premium</a>
     <a class="btn" href="#vips">Modelos Exclusivas</a>
     <a class="btn" href="#apply">Torne-se uma Modelo Elite</a>
-  </div>  <!-- Suporte --><a id="suporte" class="btn" href="https://wa.me/5491145635086" target="_blank">Suporte Exclusivo</a>
+  </div>
+
+  <!-- Suporte -->
+  <a id="suporte" class="btn" href="https://wa.me/5491145635086" target="_blank">Suporte Exclusivo</a>
 
 <script>
 // Troca de imagens do slideshow
@@ -148,5 +168,7 @@ introVideo.onended = () => {
   introScreen.style.opacity = '0';
   setTimeout(() => introScreen.style.display = 'none', 600);
 };
-</script></body>
-</html>
+</script>
+</body>
+  </html>
+  
